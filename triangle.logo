@@ -1,8 +1,0 @@
-pen color #ff0000
-forward 100
-right -120
-pen color #00ff00
-forward 100
-left 120
-pen color #0000ff
-forward 100
