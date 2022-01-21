@@ -1,0 +1,758 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> instructions
+Rule 1     instructions -> instruction
+Rule 2     instructions -> instructions instruction
+Rule 3     instruction -> FORWARD value
+Rule 4     instruction -> BACKWARD value
+Rule 5     instruction -> LEFT value
+Rule 6     instruction -> RIGHT value
+Rule 7     instruction -> PEN UP
+Rule 8     instruction -> PEN DOWN
+Rule 9     instruction -> PEN COLOR COL
+Rule 10    instruction -> REPEAT NUMBER CROG instructions CROD
+Rule 11    instruction -> TO NAME parameters instructions END
+Rule 12    instruction -> NAME values
+Rule 13    value -> NUMBER
+Rule 14    value -> XCOR
+Rule 15    value -> YCOR
+Rule 16    value -> HEADING
+Rule 17    value -> PNAME
+Rule 18    values -> <empty>
+Rule 19    values -> values value
+Rule 20    parameters -> <empty>
+Rule 21    parameters -> parameters parameter
+Rule 22    parameter -> PNAME
+
+Terminals, with rules where they appear
+
+BACKWARD             : 4
+COL                  : 9
+COLOR                : 9
+CROD                 : 10
+CROG                 : 10
+DOWN                 : 8
+END                  : 11
+FORWARD              : 3
+HEADING              : 16
+LEFT                 : 5
+NAME                 : 11 12
+NUMBER               : 10 13
+PEN                  : 7 8 9
+PNAME                : 17 22
+REPEAT               : 10
+RIGHT                : 6
+TO                   : 11
+UP                   : 7
+XCOR                 : 14
+YCOR                 : 15
+error                : 
+
+Nonterminals, with rules where they appear
+
+instruction          : 1 2
+instructions         : 2 10 11 0
+parameter            : 21
+parameters           : 11 21
+value                : 3 4 5 6 19
+values               : 12 19
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . instructions
+    (1) instructions -> . instruction
+    (2) instructions -> . instructions instruction
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instructions                   shift and go to state 1
+    instruction                    shift and go to state 2
+
+state 1
+
+    (0) S' -> instructions .
+    (2) instructions -> instructions . instruction
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instruction                    shift and go to state 11
+
+state 2
+
+    (1) instructions -> instruction .
+
+    FORWARD         reduce using rule 1 (instructions -> instruction .)
+    BACKWARD        reduce using rule 1 (instructions -> instruction .)
+    LEFT            reduce using rule 1 (instructions -> instruction .)
+    RIGHT           reduce using rule 1 (instructions -> instruction .)
+    PEN             reduce using rule 1 (instructions -> instruction .)
+    REPEAT          reduce using rule 1 (instructions -> instruction .)
+    TO              reduce using rule 1 (instructions -> instruction .)
+    NAME            reduce using rule 1 (instructions -> instruction .)
+    $end            reduce using rule 1 (instructions -> instruction .)
+    CROD            reduce using rule 1 (instructions -> instruction .)
+    END             reduce using rule 1 (instructions -> instruction .)
+
+
+state 3
+
+    (3) instruction -> FORWARD . value
+    (13) value -> . NUMBER
+    (14) value -> . XCOR
+    (15) value -> . YCOR
+    (16) value -> . HEADING
+    (17) value -> . PNAME
+
+    NUMBER          shift and go to state 13
+    XCOR            shift and go to state 14
+    YCOR            shift and go to state 15
+    HEADING         shift and go to state 16
+    PNAME           shift and go to state 17
+
+    value                          shift and go to state 12
+
+state 4
+
+    (4) instruction -> BACKWARD . value
+    (13) value -> . NUMBER
+    (14) value -> . XCOR
+    (15) value -> . YCOR
+    (16) value -> . HEADING
+    (17) value -> . PNAME
+
+    NUMBER          shift and go to state 13
+    XCOR            shift and go to state 14
+    YCOR            shift and go to state 15
+    HEADING         shift and go to state 16
+    PNAME           shift and go to state 17
+
+    value                          shift and go to state 18
+
+state 5
+
+    (5) instruction -> LEFT . value
+    (13) value -> . NUMBER
+    (14) value -> . XCOR
+    (15) value -> . YCOR
+    (16) value -> . HEADING
+    (17) value -> . PNAME
+
+    NUMBER          shift and go to state 13
+    XCOR            shift and go to state 14
+    YCOR            shift and go to state 15
+    HEADING         shift and go to state 16
+    PNAME           shift and go to state 17
+
+    value                          shift and go to state 19
+
+state 6
+
+    (6) instruction -> RIGHT . value
+    (13) value -> . NUMBER
+    (14) value -> . XCOR
+    (15) value -> . YCOR
+    (16) value -> . HEADING
+    (17) value -> . PNAME
+
+    NUMBER          shift and go to state 13
+    XCOR            shift and go to state 14
+    YCOR            shift and go to state 15
+    HEADING         shift and go to state 16
+    PNAME           shift and go to state 17
+
+    value                          shift and go to state 20
+
+state 7
+
+    (7) instruction -> PEN . UP
+    (8) instruction -> PEN . DOWN
+    (9) instruction -> PEN . COLOR COL
+
+    UP              shift and go to state 21
+    DOWN            shift and go to state 22
+    COLOR           shift and go to state 23
+
+
+state 8
+
+    (10) instruction -> REPEAT . NUMBER CROG instructions CROD
+
+    NUMBER          shift and go to state 24
+
+
+state 9
+
+    (11) instruction -> TO . NAME parameters instructions END
+
+    NAME            shift and go to state 25
+
+
+state 10
+
+    (12) instruction -> NAME . values
+    (18) values -> .
+    (19) values -> . values value
+
+    NUMBER          reduce using rule 18 (values -> .)
+    XCOR            reduce using rule 18 (values -> .)
+    YCOR            reduce using rule 18 (values -> .)
+    HEADING         reduce using rule 18 (values -> .)
+    PNAME           reduce using rule 18 (values -> .)
+    FORWARD         reduce using rule 18 (values -> .)
+    BACKWARD        reduce using rule 18 (values -> .)
+    LEFT            reduce using rule 18 (values -> .)
+    RIGHT           reduce using rule 18 (values -> .)
+    PEN             reduce using rule 18 (values -> .)
+    REPEAT          reduce using rule 18 (values -> .)
+    TO              reduce using rule 18 (values -> .)
+    NAME            reduce using rule 18 (values -> .)
+    $end            reduce using rule 18 (values -> .)
+    CROD            reduce using rule 18 (values -> .)
+    END             reduce using rule 18 (values -> .)
+
+    values                         shift and go to state 26
+
+state 11
+
+    (2) instructions -> instructions instruction .
+
+    FORWARD         reduce using rule 2 (instructions -> instructions instruction .)
+    BACKWARD        reduce using rule 2 (instructions -> instructions instruction .)
+    LEFT            reduce using rule 2 (instructions -> instructions instruction .)
+    RIGHT           reduce using rule 2 (instructions -> instructions instruction .)
+    PEN             reduce using rule 2 (instructions -> instructions instruction .)
+    REPEAT          reduce using rule 2 (instructions -> instructions instruction .)
+    TO              reduce using rule 2 (instructions -> instructions instruction .)
+    NAME            reduce using rule 2 (instructions -> instructions instruction .)
+    $end            reduce using rule 2 (instructions -> instructions instruction .)
+    CROD            reduce using rule 2 (instructions -> instructions instruction .)
+    END             reduce using rule 2 (instructions -> instructions instruction .)
+
+
+state 12
+
+    (3) instruction -> FORWARD value .
+
+    FORWARD         reduce using rule 3 (instruction -> FORWARD value .)
+    BACKWARD        reduce using rule 3 (instruction -> FORWARD value .)
+    LEFT            reduce using rule 3 (instruction -> FORWARD value .)
+    RIGHT           reduce using rule 3 (instruction -> FORWARD value .)
+    PEN             reduce using rule 3 (instruction -> FORWARD value .)
+    REPEAT          reduce using rule 3 (instruction -> FORWARD value .)
+    TO              reduce using rule 3 (instruction -> FORWARD value .)
+    NAME            reduce using rule 3 (instruction -> FORWARD value .)
+    $end            reduce using rule 3 (instruction -> FORWARD value .)
+    CROD            reduce using rule 3 (instruction -> FORWARD value .)
+    END             reduce using rule 3 (instruction -> FORWARD value .)
+
+
+state 13
+
+    (13) value -> NUMBER .
+
+    FORWARD         reduce using rule 13 (value -> NUMBER .)
+    BACKWARD        reduce using rule 13 (value -> NUMBER .)
+    LEFT            reduce using rule 13 (value -> NUMBER .)
+    RIGHT           reduce using rule 13 (value -> NUMBER .)
+    PEN             reduce using rule 13 (value -> NUMBER .)
+    REPEAT          reduce using rule 13 (value -> NUMBER .)
+    TO              reduce using rule 13 (value -> NUMBER .)
+    NAME            reduce using rule 13 (value -> NUMBER .)
+    $end            reduce using rule 13 (value -> NUMBER .)
+    CROD            reduce using rule 13 (value -> NUMBER .)
+    END             reduce using rule 13 (value -> NUMBER .)
+    NUMBER          reduce using rule 13 (value -> NUMBER .)
+    XCOR            reduce using rule 13 (value -> NUMBER .)
+    YCOR            reduce using rule 13 (value -> NUMBER .)
+    HEADING         reduce using rule 13 (value -> NUMBER .)
+    PNAME           reduce using rule 13 (value -> NUMBER .)
+
+
+state 14
+
+    (14) value -> XCOR .
+
+    FORWARD         reduce using rule 14 (value -> XCOR .)
+    BACKWARD        reduce using rule 14 (value -> XCOR .)
+    LEFT            reduce using rule 14 (value -> XCOR .)
+    RIGHT           reduce using rule 14 (value -> XCOR .)
+    PEN             reduce using rule 14 (value -> XCOR .)
+    REPEAT          reduce using rule 14 (value -> XCOR .)
+    TO              reduce using rule 14 (value -> XCOR .)
+    NAME            reduce using rule 14 (value -> XCOR .)
+    $end            reduce using rule 14 (value -> XCOR .)
+    CROD            reduce using rule 14 (value -> XCOR .)
+    END             reduce using rule 14 (value -> XCOR .)
+    NUMBER          reduce using rule 14 (value -> XCOR .)
+    XCOR            reduce using rule 14 (value -> XCOR .)
+    YCOR            reduce using rule 14 (value -> XCOR .)
+    HEADING         reduce using rule 14 (value -> XCOR .)
+    PNAME           reduce using rule 14 (value -> XCOR .)
+
+
+state 15
+
+    (15) value -> YCOR .
+
+    FORWARD         reduce using rule 15 (value -> YCOR .)
+    BACKWARD        reduce using rule 15 (value -> YCOR .)
+    LEFT            reduce using rule 15 (value -> YCOR .)
+    RIGHT           reduce using rule 15 (value -> YCOR .)
+    PEN             reduce using rule 15 (value -> YCOR .)
+    REPEAT          reduce using rule 15 (value -> YCOR .)
+    TO              reduce using rule 15 (value -> YCOR .)
+    NAME            reduce using rule 15 (value -> YCOR .)
+    $end            reduce using rule 15 (value -> YCOR .)
+    CROD            reduce using rule 15 (value -> YCOR .)
+    END             reduce using rule 15 (value -> YCOR .)
+    NUMBER          reduce using rule 15 (value -> YCOR .)
+    XCOR            reduce using rule 15 (value -> YCOR .)
+    YCOR            reduce using rule 15 (value -> YCOR .)
+    HEADING         reduce using rule 15 (value -> YCOR .)
+    PNAME           reduce using rule 15 (value -> YCOR .)
+
+
+state 16
+
+    (16) value -> HEADING .
+
+    FORWARD         reduce using rule 16 (value -> HEADING .)
+    BACKWARD        reduce using rule 16 (value -> HEADING .)
+    LEFT            reduce using rule 16 (value -> HEADING .)
+    RIGHT           reduce using rule 16 (value -> HEADING .)
+    PEN             reduce using rule 16 (value -> HEADING .)
+    REPEAT          reduce using rule 16 (value -> HEADING .)
+    TO              reduce using rule 16 (value -> HEADING .)
+    NAME            reduce using rule 16 (value -> HEADING .)
+    $end            reduce using rule 16 (value -> HEADING .)
+    CROD            reduce using rule 16 (value -> HEADING .)
+    END             reduce using rule 16 (value -> HEADING .)
+    NUMBER          reduce using rule 16 (value -> HEADING .)
+    XCOR            reduce using rule 16 (value -> HEADING .)
+    YCOR            reduce using rule 16 (value -> HEADING .)
+    HEADING         reduce using rule 16 (value -> HEADING .)
+    PNAME           reduce using rule 16 (value -> HEADING .)
+
+
+state 17
+
+    (17) value -> PNAME .
+
+    FORWARD         reduce using rule 17 (value -> PNAME .)
+    BACKWARD        reduce using rule 17 (value -> PNAME .)
+    LEFT            reduce using rule 17 (value -> PNAME .)
+    RIGHT           reduce using rule 17 (value -> PNAME .)
+    PEN             reduce using rule 17 (value -> PNAME .)
+    REPEAT          reduce using rule 17 (value -> PNAME .)
+    TO              reduce using rule 17 (value -> PNAME .)
+    NAME            reduce using rule 17 (value -> PNAME .)
+    $end            reduce using rule 17 (value -> PNAME .)
+    CROD            reduce using rule 17 (value -> PNAME .)
+    END             reduce using rule 17 (value -> PNAME .)
+    NUMBER          reduce using rule 17 (value -> PNAME .)
+    XCOR            reduce using rule 17 (value -> PNAME .)
+    YCOR            reduce using rule 17 (value -> PNAME .)
+    HEADING         reduce using rule 17 (value -> PNAME .)
+    PNAME           reduce using rule 17 (value -> PNAME .)
+
+
+state 18
+
+    (4) instruction -> BACKWARD value .
+
+    FORWARD         reduce using rule 4 (instruction -> BACKWARD value .)
+    BACKWARD        reduce using rule 4 (instruction -> BACKWARD value .)
+    LEFT            reduce using rule 4 (instruction -> BACKWARD value .)
+    RIGHT           reduce using rule 4 (instruction -> BACKWARD value .)
+    PEN             reduce using rule 4 (instruction -> BACKWARD value .)
+    REPEAT          reduce using rule 4 (instruction -> BACKWARD value .)
+    TO              reduce using rule 4 (instruction -> BACKWARD value .)
+    NAME            reduce using rule 4 (instruction -> BACKWARD value .)
+    $end            reduce using rule 4 (instruction -> BACKWARD value .)
+    CROD            reduce using rule 4 (instruction -> BACKWARD value .)
+    END             reduce using rule 4 (instruction -> BACKWARD value .)
+
+
+state 19
+
+    (5) instruction -> LEFT value .
+
+    FORWARD         reduce using rule 5 (instruction -> LEFT value .)
+    BACKWARD        reduce using rule 5 (instruction -> LEFT value .)
+    LEFT            reduce using rule 5 (instruction -> LEFT value .)
+    RIGHT           reduce using rule 5 (instruction -> LEFT value .)
+    PEN             reduce using rule 5 (instruction -> LEFT value .)
+    REPEAT          reduce using rule 5 (instruction -> LEFT value .)
+    TO              reduce using rule 5 (instruction -> LEFT value .)
+    NAME            reduce using rule 5 (instruction -> LEFT value .)
+    $end            reduce using rule 5 (instruction -> LEFT value .)
+    CROD            reduce using rule 5 (instruction -> LEFT value .)
+    END             reduce using rule 5 (instruction -> LEFT value .)
+
+
+state 20
+
+    (6) instruction -> RIGHT value .
+
+    FORWARD         reduce using rule 6 (instruction -> RIGHT value .)
+    BACKWARD        reduce using rule 6 (instruction -> RIGHT value .)
+    LEFT            reduce using rule 6 (instruction -> RIGHT value .)
+    RIGHT           reduce using rule 6 (instruction -> RIGHT value .)
+    PEN             reduce using rule 6 (instruction -> RIGHT value .)
+    REPEAT          reduce using rule 6 (instruction -> RIGHT value .)
+    TO              reduce using rule 6 (instruction -> RIGHT value .)
+    NAME            reduce using rule 6 (instruction -> RIGHT value .)
+    $end            reduce using rule 6 (instruction -> RIGHT value .)
+    CROD            reduce using rule 6 (instruction -> RIGHT value .)
+    END             reduce using rule 6 (instruction -> RIGHT value .)
+
+
+state 21
+
+    (7) instruction -> PEN UP .
+
+    FORWARD         reduce using rule 7 (instruction -> PEN UP .)
+    BACKWARD        reduce using rule 7 (instruction -> PEN UP .)
+    LEFT            reduce using rule 7 (instruction -> PEN UP .)
+    RIGHT           reduce using rule 7 (instruction -> PEN UP .)
+    PEN             reduce using rule 7 (instruction -> PEN UP .)
+    REPEAT          reduce using rule 7 (instruction -> PEN UP .)
+    TO              reduce using rule 7 (instruction -> PEN UP .)
+    NAME            reduce using rule 7 (instruction -> PEN UP .)
+    $end            reduce using rule 7 (instruction -> PEN UP .)
+    CROD            reduce using rule 7 (instruction -> PEN UP .)
+    END             reduce using rule 7 (instruction -> PEN UP .)
+
+
+state 22
+
+    (8) instruction -> PEN DOWN .
+
+    FORWARD         reduce using rule 8 (instruction -> PEN DOWN .)
+    BACKWARD        reduce using rule 8 (instruction -> PEN DOWN .)
+    LEFT            reduce using rule 8 (instruction -> PEN DOWN .)
+    RIGHT           reduce using rule 8 (instruction -> PEN DOWN .)
+    PEN             reduce using rule 8 (instruction -> PEN DOWN .)
+    REPEAT          reduce using rule 8 (instruction -> PEN DOWN .)
+    TO              reduce using rule 8 (instruction -> PEN DOWN .)
+    NAME            reduce using rule 8 (instruction -> PEN DOWN .)
+    $end            reduce using rule 8 (instruction -> PEN DOWN .)
+    CROD            reduce using rule 8 (instruction -> PEN DOWN .)
+    END             reduce using rule 8 (instruction -> PEN DOWN .)
+
+
+state 23
+
+    (9) instruction -> PEN COLOR . COL
+
+    COL             shift and go to state 27
+
+
+state 24
+
+    (10) instruction -> REPEAT NUMBER . CROG instructions CROD
+
+    CROG            shift and go to state 28
+
+
+state 25
+
+    (11) instruction -> TO NAME . parameters instructions END
+    (20) parameters -> .
+    (21) parameters -> . parameters parameter
+
+    PNAME           reduce using rule 20 (parameters -> .)
+    FORWARD         reduce using rule 20 (parameters -> .)
+    BACKWARD        reduce using rule 20 (parameters -> .)
+    LEFT            reduce using rule 20 (parameters -> .)
+    RIGHT           reduce using rule 20 (parameters -> .)
+    PEN             reduce using rule 20 (parameters -> .)
+    REPEAT          reduce using rule 20 (parameters -> .)
+    TO              reduce using rule 20 (parameters -> .)
+    NAME            reduce using rule 20 (parameters -> .)
+
+    parameters                     shift and go to state 29
+
+state 26
+
+    (12) instruction -> NAME values .
+    (19) values -> values . value
+    (13) value -> . NUMBER
+    (14) value -> . XCOR
+    (15) value -> . YCOR
+    (16) value -> . HEADING
+    (17) value -> . PNAME
+
+    FORWARD         reduce using rule 12 (instruction -> NAME values .)
+    BACKWARD        reduce using rule 12 (instruction -> NAME values .)
+    LEFT            reduce using rule 12 (instruction -> NAME values .)
+    RIGHT           reduce using rule 12 (instruction -> NAME values .)
+    PEN             reduce using rule 12 (instruction -> NAME values .)
+    REPEAT          reduce using rule 12 (instruction -> NAME values .)
+    TO              reduce using rule 12 (instruction -> NAME values .)
+    NAME            reduce using rule 12 (instruction -> NAME values .)
+    $end            reduce using rule 12 (instruction -> NAME values .)
+    CROD            reduce using rule 12 (instruction -> NAME values .)
+    END             reduce using rule 12 (instruction -> NAME values .)
+    NUMBER          shift and go to state 13
+    XCOR            shift and go to state 14
+    YCOR            shift and go to state 15
+    HEADING         shift and go to state 16
+    PNAME           shift and go to state 17
+
+    value                          shift and go to state 30
+
+state 27
+
+    (9) instruction -> PEN COLOR COL .
+
+    FORWARD         reduce using rule 9 (instruction -> PEN COLOR COL .)
+    BACKWARD        reduce using rule 9 (instruction -> PEN COLOR COL .)
+    LEFT            reduce using rule 9 (instruction -> PEN COLOR COL .)
+    RIGHT           reduce using rule 9 (instruction -> PEN COLOR COL .)
+    PEN             reduce using rule 9 (instruction -> PEN COLOR COL .)
+    REPEAT          reduce using rule 9 (instruction -> PEN COLOR COL .)
+    TO              reduce using rule 9 (instruction -> PEN COLOR COL .)
+    NAME            reduce using rule 9 (instruction -> PEN COLOR COL .)
+    $end            reduce using rule 9 (instruction -> PEN COLOR COL .)
+    CROD            reduce using rule 9 (instruction -> PEN COLOR COL .)
+    END             reduce using rule 9 (instruction -> PEN COLOR COL .)
+
+
+state 28
+
+    (10) instruction -> REPEAT NUMBER CROG . instructions CROD
+    (1) instructions -> . instruction
+    (2) instructions -> . instructions instruction
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instructions                   shift and go to state 31
+    instruction                    shift and go to state 2
+
+state 29
+
+    (11) instruction -> TO NAME parameters . instructions END
+    (21) parameters -> parameters . parameter
+    (1) instructions -> . instruction
+    (2) instructions -> . instructions instruction
+    (22) parameter -> . PNAME
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    PNAME           shift and go to state 34
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instructions                   shift and go to state 32
+    parameter                      shift and go to state 33
+    instruction                    shift and go to state 2
+
+state 30
+
+    (19) values -> values value .
+
+    NUMBER          reduce using rule 19 (values -> values value .)
+    XCOR            reduce using rule 19 (values -> values value .)
+    YCOR            reduce using rule 19 (values -> values value .)
+    HEADING         reduce using rule 19 (values -> values value .)
+    PNAME           reduce using rule 19 (values -> values value .)
+    FORWARD         reduce using rule 19 (values -> values value .)
+    BACKWARD        reduce using rule 19 (values -> values value .)
+    LEFT            reduce using rule 19 (values -> values value .)
+    RIGHT           reduce using rule 19 (values -> values value .)
+    PEN             reduce using rule 19 (values -> values value .)
+    REPEAT          reduce using rule 19 (values -> values value .)
+    TO              reduce using rule 19 (values -> values value .)
+    NAME            reduce using rule 19 (values -> values value .)
+    $end            reduce using rule 19 (values -> values value .)
+    CROD            reduce using rule 19 (values -> values value .)
+    END             reduce using rule 19 (values -> values value .)
+
+
+state 31
+
+    (10) instruction -> REPEAT NUMBER CROG instructions . CROD
+    (2) instructions -> instructions . instruction
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    CROD            shift and go to state 35
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instruction                    shift and go to state 11
+
+state 32
+
+    (11) instruction -> TO NAME parameters instructions . END
+    (2) instructions -> instructions . instruction
+    (3) instruction -> . FORWARD value
+    (4) instruction -> . BACKWARD value
+    (5) instruction -> . LEFT value
+    (6) instruction -> . RIGHT value
+    (7) instruction -> . PEN UP
+    (8) instruction -> . PEN DOWN
+    (9) instruction -> . PEN COLOR COL
+    (10) instruction -> . REPEAT NUMBER CROG instructions CROD
+    (11) instruction -> . TO NAME parameters instructions END
+    (12) instruction -> . NAME values
+
+    END             shift and go to state 36
+    FORWARD         shift and go to state 3
+    BACKWARD        shift and go to state 4
+    LEFT            shift and go to state 5
+    RIGHT           shift and go to state 6
+    PEN             shift and go to state 7
+    REPEAT          shift and go to state 8
+    TO              shift and go to state 9
+    NAME            shift and go to state 10
+
+    instruction                    shift and go to state 11
+
+state 33
+
+    (21) parameters -> parameters parameter .
+
+    PNAME           reduce using rule 21 (parameters -> parameters parameter .)
+    FORWARD         reduce using rule 21 (parameters -> parameters parameter .)
+    BACKWARD        reduce using rule 21 (parameters -> parameters parameter .)
+    LEFT            reduce using rule 21 (parameters -> parameters parameter .)
+    RIGHT           reduce using rule 21 (parameters -> parameters parameter .)
+    PEN             reduce using rule 21 (parameters -> parameters parameter .)
+    REPEAT          reduce using rule 21 (parameters -> parameters parameter .)
+    TO              reduce using rule 21 (parameters -> parameters parameter .)
+    NAME            reduce using rule 21 (parameters -> parameters parameter .)
+
+
+state 34
+
+    (22) parameter -> PNAME .
+
+    PNAME           reduce using rule 22 (parameter -> PNAME .)
+    FORWARD         reduce using rule 22 (parameter -> PNAME .)
+    BACKWARD        reduce using rule 22 (parameter -> PNAME .)
+    LEFT            reduce using rule 22 (parameter -> PNAME .)
+    RIGHT           reduce using rule 22 (parameter -> PNAME .)
+    PEN             reduce using rule 22 (parameter -> PNAME .)
+    REPEAT          reduce using rule 22 (parameter -> PNAME .)
+    TO              reduce using rule 22 (parameter -> PNAME .)
+    NAME            reduce using rule 22 (parameter -> PNAME .)
+
+
+state 35
+
+    (10) instruction -> REPEAT NUMBER CROG instructions CROD .
+
+    FORWARD         reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    BACKWARD        reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    LEFT            reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    RIGHT           reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    PEN             reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    REPEAT          reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    TO              reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    NAME            reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    $end            reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    CROD            reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+    END             reduce using rule 10 (instruction -> REPEAT NUMBER CROG instructions CROD .)
+
+
+state 36
+
+    (11) instruction -> TO NAME parameters instructions END .
+
+    FORWARD         reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    BACKWARD        reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    LEFT            reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    RIGHT           reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    PEN             reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    REPEAT          reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    TO              reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    NAME            reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    $end            reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    CROD            reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+    END             reduce using rule 11 (instruction -> TO NAME parameters instructions END .)
+
