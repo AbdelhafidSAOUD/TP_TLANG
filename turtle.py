@@ -35,7 +35,7 @@ class Turtle:
 
         
     def right(self, a):
-        self.angle += a
+        self.angle += a*pi/180
         #return self.output.write(f'<line x1 = "{int(self.x)}" y1 = "{int(self.y)}" x2 = "{int(self.x + dx)}" y2 = "{int(self.y + dy)}" style = "stroke:{self.color}"/>\n')
  
         
